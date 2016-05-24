@@ -23,15 +23,22 @@ namespace ProductRepresent
         {
             app.UseIISPlatformHandler();
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                //routes.MapRoute(
+                //    name: "areaRoute",
+                //    template: "{area:exists}/{controller}/{action}",
+                //    defaults: new { action = "Index" });
 
-            app.UseMvcWithDefaultRoute();
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Main", action = "Index" });
 
-            //app.UseRouter()
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+                //routes.MapRoute(
+                //    name: "api",
+                //    template: "{controller}/{id?}");
+            });
         }
 
         // Entry point for the application.

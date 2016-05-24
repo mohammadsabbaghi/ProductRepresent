@@ -9,7 +9,7 @@ namespace ProductRepresent.Models
 {
     public class ApplicationUser : IdentityUser { }
 
-    public class Context
+    public class ProductRepresentContext : IdentityDbContext<ApplicationUser>
     {
 
     }
